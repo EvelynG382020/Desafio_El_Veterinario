@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="text-center"> Ficha Mascota</h1>
+<p>
+  <strong>Nombre Dueño:</strong>
+  <%= @client.name %>
+</p>
+
+<p>
+  <strong>Teléfono</strong>
+  <%= @client.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @client.email %>
+</p>
+
+
+<table class="table mt-4">
+  <thead class="table table-dark">
+    <tr>
+      <th class="text-center">Nombre Mascota</th>
+      <th class="text-center">Altura Máxima</th>
+      <th class="text-center">Peso Máximo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pets.each do |pet| %>
+      <tr>
+        <td class="text-center"><%= pet.name %></td>
+        <td class="text-center"><%= pet.max_height %></td>
+        <td class="text-center"><%= pet.max_weight %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Edit Client', edit_client_path(@client) %> |
+<%= link_to 'Lista de Clientes', clients_path %>

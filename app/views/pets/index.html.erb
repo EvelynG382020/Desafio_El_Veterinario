@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="text-center">PETS</h1>
+
+<table class="table mt-4">
+  <thead class="table table-dark">
+    <tr>
+      <th class="text-center">Nombre mascota</th>
+      <th class="text-center">Raza</th>
+      <th class="text-center">Fecha Nacimiento</th>
+      <th class="text-center">Cliente</th>
+      <th class="text-center">Visitas totales</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pets.each do |pet| %>
+      <tr>
+        <td class="text-center"><%= pet.name %></td>
+        <td class="text-center"><%= pet.breed %></td>
+        <td class="text-center"><%= pet.birth %></td>
+        <td class="text-center"><%= pet.owner %></td>
+        <td class="text-center"><%= pet.history_count %></td>
+        <td><%= link_to 'Historial', pet %></td>
+        <td><%= link_to 'Editar', edit_pet_path(pet) %></td>
+        <td><%= link_to 'Borrar', pet, method: :delete, data: { confirm: 'Confirma eliminación?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Nueva Mascota', new_pet_path, class: "btn btn-info mx-2" %>
+<%= link_to 'Regresar', pages_index_path, class: "btn btn-warning mx-2" %>

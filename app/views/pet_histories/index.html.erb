@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Todas las Consultas</h1>
+
+<table>
+    <thead>
+        <tr>
+        <th>Peso</th>
+        <th>Altura</th>
+        <th>Diagnóstico</th>
+        <th>Descripción</th>
+        <th>Mascota</th>
+        <th colspan="3"></th>
+        </tr>
+    </thead>
+
+    <tbody>
+    <% @pet_histories.each do |pet_history| %>
+      <tr>
+        <td><%= pet_history.weight %></td>
+        <td><%= pet_history.height %></td>
+        <td><%= pet_history.diagnosis %></td>
+        <td><%= pet_history.description %></td>
+        <td><%= pet_history.pet_id %></td>
+        <td><%= link_to 'Show', pet_history %></td>
+        <td><%= link_to 'Edit', edit_pet_history_path(pet_history) %></td>
+        <td><%= link_to 'Destroy', pet_history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'Página Principal', pages_index_path %>
+<%= link_to 'New Pet History', new_pet_history_path %>

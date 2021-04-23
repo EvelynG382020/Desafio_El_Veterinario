@@ -1,0 +1,76 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <div class="text-primary">
+    <h2>Historial Mascota</h2>
+  </div>  
+  <div class="text-dark">
+    <p>
+      <strong>Nombre:</strong>
+      <%= @pet.name %>
+    </p>
+
+    <p>
+      <strong>Dueño:</strong>
+      <%= @pet.owner %>
+    </p>
+
+    <p>
+      <strong>Raza:</strong>
+      <%= @pet.breed %>
+    </p>
+
+    <p>
+      <strong>Nacimiento:</strong>
+      <%= @pet.birth %>
+    </p>
+
+    <p>
+      <strong>Peso Promedio:</strong>
+      <%= @pet.avg_weight %>
+    </p>
+
+    <p>
+      <strong>Peso Máximo:(kilos)</strong>
+      <%= @pet.max_weight %>
+    </p>
+
+    <p>
+      <strong>Altura Promedio: (centímetros)</strong>
+      <%= @pet.avg_height %>
+    </p>
+
+    <p>
+      <strong>Altura Máxima:</strong>
+      <%= @pet.max_height %>
+    </p>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Diagnóstico</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Peso</th>
+        <th scope="col">Altura</th>
+      </tr>
+    </thead>
+    <br>
+    <tbody>
+      <% @pet.pet_histories.each do |pet| %>
+        <tr>
+          <td><%= pet.diagnosis %></td>
+          <td><%= pet.description %></td>
+          <td><%= pet.created_at.to_date %></td>
+          <td><%= pet.weight %></td>
+          <td><%= pet.height %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<br>
+<%= link_to 'Listado de Mascotas', pets_path, class: "btn btn-info mx-2" %>
+
+ 
