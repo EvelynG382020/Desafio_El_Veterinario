@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_04_22_025631) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "clients", force: :cascade do |t|
     t.string "name"
     t.integer "phone"
@@ -25,7 +28,7 @@ ActiveRecord::Schema.define(version: 2021_04_22_025631) do
     t.integer "height"
     t.string "diagnosis"
     t.text "description"
-    t.integer "pet_id"
+    t.bigint "pet_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["pet_id"], name: "index_pet_histories_on_pet_id"
@@ -35,7 +38,7 @@ ActiveRecord::Schema.define(version: 2021_04_22_025631) do
     t.string "name"
     t.string "breed"
     t.date "birth"
-    t.integer "client_id"
+    t.bigint "client_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["client_id"], name: "index_pets_on_client_id"
